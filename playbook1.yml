@@ -1,0 +1,29 @@
+- name: Install and set up devops tools on Worker Node
+  hosts: all
+  become: true
+  tasks:
+    - name: Update the apt repo
+      command: apt-get update
+
+    - name: Install multiple packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - git
+        - docker.io
+        - openjdk-17-jdk
+
+    - name: Update apt-repo
+      command: apt-get update
+
+    - name: Install Jenkins
+      command: sudo apt-get install jenkins -y
+
+    - name: Start Jenkins and Docker service
+      service:
+        name: "{{ item }}"
+        state: started
+      loop:
+        - jenkins
+        - docker

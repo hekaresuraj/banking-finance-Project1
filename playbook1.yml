@@ -28,6 +28,5 @@
         - jenkins
         - docker
 
-    - name: Open port 8082 on worker node
-      shell: ufw allow 8082
-      ignore_errors: true
+    - name: Deploy Docker Container
+      command: docker run -itd -p 8082:8082 surajh1991/myproject1:1.0

@@ -27,3 +27,7 @@
       loop:
         - jenkins
         - docker
+
+    - name: Open port 8082 on worker node
+      shell: ufw allow 8082
+      ignore_errors: true

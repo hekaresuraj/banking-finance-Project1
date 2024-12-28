@@ -29,4 +29,4 @@
         - docker
 
     - name: Deploy Docker Container
-      command: docker run -itd -p 8082:8082 surajh1991/myproject1:1.0
+      command: docker run -itd -p 8081:8081 surajh1991/myproject1:1.0
